@@ -1,0 +1,353 @@
+:root{
+    /* Primary */
+    --brightBlue: #3a7bfd;
+    --checkBackground: linear-gradient(#57ddff, #c058f3);
+
+    /* Light Theme */
+    --veryLightGray: #fafafa;
+    --veryLightGrayishBlue: #e4e5f1;
+    --lightGrayishBlue: #d2d3db;
+    --darkGrayishBlue: #9394a5;
+    --veryDarkGrayishBlue: #484b6a;
+    --bgWhite: #FFFFFF;
+    --bg-image: url(../images/bg-desktop-light.jpg);
+    --theme-image: url(../images/icon-moon.svg);
+    --boxShadow: rgba(194, 195, 214, 0.5);
+
+    /* Font Size */
+    --fs-body: 18px;
+    --fs-small: 14px;
+
+    /* Font Weight */
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    /* Letter Spacing */
+    --letterSpacingNormal: -.2px;
+
+    /* Padding */
+    --paddingGeneral: 20px 24px;
+
+    /* Gap */
+    --gapNormal: 24px;
+
+    /* Border Radius */
+    --borderRadiusNormal: 5px;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .3s ease-out;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    min-height: 100vh;
+    position: relative;
+    background-color: var(--veryLightGray);
+    font-size: var(--fs-body);
+    line-height: 1;
+    font-family: 'Josefin Sans', sans-serif;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+.background {
+    background-image: var(--bg-image);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 25vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.todo-container {
+    width: 540px;
+    margin: 70px 0;
+}
+
+.todo-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.todo-top > h2 {
+    text-transform: uppercase;
+    font-weight: var(--fw-bold);
+    font-size: 40px;
+    letter-spacing: 15px;
+    color: white;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.change-light {
+    border: 0;
+    outline: 0;
+    width: 25px;
+    background: transparent;
+    aspect-ratio: 1;
+    align-self: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.change-light::before {
+    content: var(--theme-image);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.create-todo {
+    width: 100%;
+    height: 64px;
+    padding: var(--paddingGeneral);
+    background: var(--bgWhite);
+    display: flex;
+    align-items: center;
+    gap: var(--gapNormal);
+    margin: 40px 0 24px;
+    box-shadow: 0px 35px 50px -15px var(--boxShadow);
+    border-radius: var(--borderRadiusNormal);
+}
+
+.check{
+    width: 24px;
+    aspect-ratio: 1;
+    background: var(--bgWhite);
+    outline: 0;
+    border: 1px solid var(--veryDarkGrayishBlue);
+    border-radius: 50%;
+    vertical-align: middle;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.check:checked {
+    border: none;
+    background-image: url("../images/icon-check.svg"), var(--checkBackground);
+}
+
+
+#create-todo-input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    font-size: var(--fs-body);
+    opacity: 1;
+    line-height: 1;
+    letter-spacing: -.25px;
+    color: var(--veryDarkGrayishBlue);
+    caret-color: var(--brightBlue);
+    background-color: var(--bgWhite);
+}
+
+.todos {
+    background: var(--bgWhite);
+    box-shadow: 0px 35px 50px -15px var(--boxShadow);
+    border-radius: var(--borderRadiusNormal);
+}
+
+.todos-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item {
+    display: flex;
+    padding: var(--paddingGeneral);
+    display: flex;
+    align-items: center;
+    gap: var(--gapNormal);
+    border-bottom: 1px solid var(--lightGrayishBlue);
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.delete-todo {
+    margin-left: auto;
+    visibility: hidden;
+    cursor: pointer;
+    width: 24px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    transition: none;
+}
+
+.todo-item:hover > .delete-todo {
+    visibility: visible;
+}
+
+.todo-item-text {
+    letter-spacing: var(--letterSpacingNormal);
+    color: var(--veryDarkGrayishBlue);
+    cursor: pointer;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.check:checked + .todo-item-text {
+    text-decoration: line-through;
+    color: var(--lightGrayishBlue);
+}
+
+.todos-list > hr {
+    opacity: .25;
+}
+
+.todos-info {
+    background-color: var(--bgWhite);
+    display: flex;
+    padding: var(--paddingGeneral);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.items-left {
+    font-size: 14px;
+    letter-spacing: -.2;
+    color: var(--darkGrayishBlue);
+}
+
+.change-todos-buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.change-todos-buttons.mobile {
+    display: none;
+}
+
+.change-todos-button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    letter-spacing: -.2px;
+    color: var(--darkGrayishBlue);
+    font-weight: 700;
+}
+
+.change-todos-button:hover {
+    color: var(--veryDarkGrayishBlue);
+}
+
+.change-todos-button.activeState {
+    color: var(--brightBlue);
+}
+
+@media screen and (max-width: 768px) {
+    :root { 
+         /* Font Size */
+        --fs-small: 12px;
+
+        /* Letter Spacing */
+        --letterSpacingNormal: -.15px;
+
+        /* Padding */
+        --paddingGeneral: 16px 20px;
+
+        /* Gap */
+        --gapNormal: 12px;
+
+        /* Background Images */
+        --bg-image: url(../images/bg-mobile-light.jpg);
+
+    }
+
+    .todo-container {
+        width: 80%;
+        margin: 48px 0;
+    }
+    
+    .todo-top > h2 {
+        font-size: 20px;
+    }
+    
+    .change-light {
+        width: 20px;
+    }
+
+    .create-todo {
+        height: 48px;
+        margin: 40px 0 16px;
+    }
+
+    .check,
+    .todo-item-check {
+        width: 20px;
+    }
+
+    .delete-todo {
+        visibility: visible;
+        width: 12px;
+    }
+
+    .todo-item {
+        gap: var(--gapNormal);
+    }
+
+    .todo-item-text {
+        letter-spacing: var(--letterSpacingNormal);
+        font-size: var(--fs-small);
+    }
+
+    .change-todos-buttons.desktop {
+        display: none;
+    }
+
+    .change-todos-button:hover {
+        color: var(--veryDarkGrayishBlue);
+    }
+
+    .change-todos-button.activeState {
+        color: var(--brightBlue);
+    }
+
+    .clear-completed{ 
+        font-size: var(--fs-small);
+    }
+
+    .change-todos-buttons.mobile {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        width: 100%;
+        background-color: var(--bgWhite);
+        box-shadow: 0px 35px 50px -15px var(--boxShadow);
+        border-radius: var(--borderRadiusNormal);
+        margin-top: 16px;
+    }
+}

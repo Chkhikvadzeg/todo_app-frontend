@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Todo app</title>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="todo-container">
+    <div class="todo-top">
+      <h2>todo</h2>
+      <button class="change-light"></button>
+    </div>
+    <div class="create-todo">
+      <input type="checkbox" name="createTodoCheck" id="createTodoCheck" class="check newTodoCheck">
+      <input type="text" name="todo" id="create-todo-input" placeholder="Create a new todo…">
+    </div>
+    <div class="todos">
+      <ul class="todos-list">
+        
+      </ul>
+      <div class="todos-info">
+        <span class="items-left">0 items left</span>
+        <div class="change-todos-buttons desktop">
+          <button class="change-todos-button all activeState">All</button>
+          <button class="change-todos-button active">Active</button>
+          <button class="change-todos-button completed">Completed</button>
+        </div>
+        <button class="change-todos-button clear-completed">Clear Completed</button>
+      </div>
+    </div>
+    <div class="change-todos-buttons mobile">
+      <button class="change-todos-button all activeState">All</button>
+      <button class="change-todos-button active">Active</button>
+      <button class="change-todos-button completed">Completed</button>
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
